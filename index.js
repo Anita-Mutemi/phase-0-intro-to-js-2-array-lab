@@ -1,16 +1,12 @@
 // Write your solution here!
-const cats = [
-    "Milo",
-    "Otis",
-    "Garfield",
-];
+let cats = ["Milo", "Otis", "Garfield"];
 
-function destructivelyAppendCat(bimbo) {
-  cats.push(bimbo);
+function destructivelyAppendCat(name) {
+  cats.push(name);
 }
 
-function destructivelyPrependCat(bimbo) {
-  cats.unshift(bimbo);
+function destructivelyPrependCat(name) {
+  cats.unshift(name);
 }
 
 function destructivelyRemoveLastCat() {
@@ -21,27 +17,31 @@ function destructivelyRemoveFirstCat() {
   cats.shift();
 }
 
-function appendCat(bimbo) {
-  const newCats = cats.slice();
-  newCats.push(bimbo);
-  return newCats;
+function appendCat(name) {
+  return [...cats, name];
 }
 
-function prependCat(bimbo) {
-  const newCats = cats.slice();
-  newCats.unshift(bimbo);
-  return newCats;
+function prependCat(name) {
+  return [name, ...cats];
 }
 
 function removeLastCat() {
-  const newCats = cats.slice();
-  newCats.pop();
-  return newCats;
+  return cats.slice(0, -1);
 }
 
 function removeFirstCat() {
-  const newCats = cats.slice();
-  newCats.shift();
-  return newCats;
+  return cats.slice(1);
 }
+
+// to export the functions if you need to use them in other files
+module.exports = {
+  destructivelyAppendCat,
+  destructivelyPrependCat,
+  destructivelyRemoveLastCat,
+  destructivelyRemoveFirstCat,
+  appendCat,
+  prependCat,
+  removeLastCat,
+  removeFirstCat,
+};
 
